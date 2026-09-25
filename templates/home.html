@@ -1,0 +1,76 @@
+<html>
+<body>
+    <div class="login">
+    <h1>Apartment Price Prediction</h1>
+    <form action="{{ url_for('predict_datapoint') }}" method="post">
+
+    <select name="type" required>
+        <option value="" disabled {% if not form_data %}selected{% endif %}>Select type</option>
+        <option value="blockOfFlats"      {% if form_data and form_data.type == 'blockOfFlats' %}selected{% endif %}>Block of Flats</option>
+        <option value="tenement"          {% if form_data and form_data.type == 'tenement' %}selected{% endif %}>Tenement</option>
+        <option value="apartmentBuilding" {% if form_data and form_data.type == 'apartmentBuilding' %}selected{% endif %}>Apartment Building</option>
+    </select><br>
+
+    <input type="text" name="squareMeters"        placeholder="Square Meters"             value="{{ form_data.squareMeters if form_data }}"        required><br>
+    <input type="text" name="rooms"               placeholder="Rooms"                     value="{{ form_data.rooms if form_data }}"                required><br>
+    <input type="text" name="floor"               placeholder="Floor"                     value="{{ form_data.floor if form_data }}"                required><br>
+    <input type="text" name="floorCount"          placeholder="Floor Count"               value="{{ form_data.floorCount if form_data }}"           required><br>
+    <input type="text" name="buildYear"           placeholder="Build Year"                value="{{ form_data.buildYear if form_data }}"            required><br>
+    <input type="text" name="latitude"            placeholder="Latitude"                  value="{{ form_data.latitude if form_data }}"             required><br>
+    <input type="text" name="longitude"           placeholder="Longitude"                 value="{{ form_data.longitude if form_data }}"            required><br>
+    <input type="text" name="centreDistance"      placeholder="Centre Distance (km)"      value="{{ form_data.centreDistance if form_data }}"       required><br>
+    <input type="text" name="poiCount"            placeholder="POI Count"                 value="{{ form_data.poiCount if form_data }}"             required><br>
+    <input type="text" name="schoolDistance"      placeholder="School Distance (km)"      value="{{ form_data.schoolDistance if form_data }}"       required><br>
+    <input type="text" name="clinicDistance"      placeholder="Clinic Distance (km)"      value="{{ form_data.clinicDistance if form_data }}"       required><br>
+    <input type="text" name="postOfficeDistance"  placeholder="Post Office Distance (km)" value="{{ form_data.postOfficeDistance if form_data }}"   required><br>
+    <input type="text" name="kindergartenDistance"placeholder="Kindergarten Distance (km)"value="{{ form_data.kindergartenDistance if form_data }}" required><br>
+    <input type="text" name="restaurantDistance"  placeholder="Restaurant Distance (km)"  value="{{ form_data.restaurantDistance if form_data }}"   required><br>
+    <input type="text" name="collegeDistance"     placeholder="College Distance (km)"     value="{{ form_data.collegeDistance if form_data }}"      required><br>
+    <input type="text" name="pharmacyDistance"    placeholder="Pharmacy Distance (km)"    value="{{ form_data.pharmacyDistance if form_data }}"     required><br>
+
+    <select name="ownership" required>
+        <option value="" disabled {% if not form_data %}selected{% endif %}>Select Ownership</option>
+        <option value="condominium" {% if form_data and form_data.ownership == 'condominium' %}selected{% endif %}>Condominium</option>
+        <option value="cooperative" {% if form_data and form_data.ownership == 'cooperative' %}selected{% endif %}>Cooperative</option>
+        <option value="udział"      {% if form_data and form_data.ownership == 'udział' %}selected{% endif %}>Udział</option>
+    </select><br>
+
+    <select name="hasParkingSpace" required>
+        <option value="" disabled {% if not form_data %}selected{% endif %}>Has Parking Space</option>
+        <option value="yes" {% if form_data and form_data.hasParkingSpace == 'yes' %}selected{% endif %}>Yes</option>
+        <option value="no"  {% if form_data and form_data.hasParkingSpace == 'no' %}selected{% endif %}>No</option>
+    </select><br>
+
+    <select name="hasBalcony" required>
+        <option value="" disabled {% if not form_data %}selected{% endif %}>Has Balcony</option>
+        <option value="yes" {% if form_data and form_data.hasBalcony == 'yes' %}selected{% endif %}>Yes</option>
+        <option value="no"  {% if form_data and form_data.hasBalcony == 'no' %}selected{% endif %}>No</option>
+    </select><br>
+
+    <select name="hasElevator" required>
+        <option value="" disabled {% if not form_data %}selected{% endif %}>Has Elevator</option>
+        <option value="yes" {% if form_data and form_data.hasElevator == 'yes' %}selected{% endif %}>Yes</option>
+        <option value="no"  {% if form_data and form_data.hasElevator == 'no' %}selected{% endif %}>No</option>
+    </select><br>
+
+    <select name="hasSecurity" required>
+        <option value="" disabled {% if not form_data %}selected{% endif %}>Has Security</option>
+        <option value="yes" {% if form_data and form_data.hasSecurity == 'yes' %}selected{% endif %}>Yes</option>
+        <option value="no"  {% if form_data and form_data.hasSecurity == 'no' %}selected{% endif %}>No</option>
+    </select><br>
+
+    <select name="hasStorageRoom" required>
+        <option value="" disabled {% if not form_data %}selected{% endif %}>Has Storage Room</option>
+        <option value="yes" {% if form_data and form_data.hasStorageRoom == 'yes' %}selected{% endif %}>Yes</option>
+        <option value="no"  {% if form_data and form_data.hasStorageRoom == 'no' %}selected{% endif %}>No</option>
+    </select><br>
+
+    <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+
+    </form>
+
+    <h2>The Price Prediction is {{ results }} PLN</h2>
+
+    </div>
+</body>
+</html>
