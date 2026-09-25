@@ -2,6 +2,9 @@
 
 A machine learning web application that predicts apartment prices in Poland using May-June 2024 data. Built with scikit-learn and deployed via Flask on AWS Elastic Beanstalk.
 
+## Live Demo
+🌐 [Polish Apartment Price Predictor](http://polish-apartment-price-predictio-env.eba-rheknhrx.eu-north-1.elasticbeanstalk.com)
+
 ---
 
 ## Project Overview
@@ -51,7 +54,7 @@ Correlated features dropped: `rooms`, `floor`, `schoolDistance`, `postOfficeDist
 
 - **Python** — pandas, numpy, scikit-learn, Flask
 - **ML** — RandomForestRegressor, GridSearchCV, Pipeline, ColumnTransformer
-- **Deployment** — AWS Elastic Beanstalk
+- **Deployment** — AWS Elastic Beanstalk, AWS CodePipeline (CI/CD)
 
 ---
 
@@ -63,6 +66,8 @@ Correlated features dropped: `rooms`, `floor`, `schoolDistance`, `postOfficeDist
 ├── housing_model.pkl       # Serialized pipeline (preprocessing + model)
 ├── feature_names.json      # Valid input features for validation
 ├── requirements.txt
+├── .ebextensions/
+│   └── python.config       # Elastic Beanstalk configuration
 ├── templates/
 │   └── home.html           # Input form and prediction result
 ├── ML_EDA_project.ipynb    # Exploratory Data Analysis
@@ -79,6 +84,12 @@ A custom `CustomePreprocess` transformer (inheriting `BaseEstimator`, `Transform
 Raw Input → OrdinalEncoder (binary) → OneHotEncoder (categorical)
          → Drop correlated columns → RandomForestRegressor → Price
 ```
+
+---
+
+## CI/CD
+
+Connected to GitHub via AWS CodePipeline — every push to `main` branch automatically redeploys the app on Elastic Beanstalk.
 
 ---
 
