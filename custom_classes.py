@@ -12,10 +12,10 @@ class CustomePreprocess(BaseEstimator, TransformerMixin):
         self.To_remove=To_remove
     def fit(self, X, y=None):
         X_temp=X.copy()
-        self.oe_=OrdinalEncoder()
+        self.oe_=OrdinalEncoder(handle_unknown="use_encoded_value")
         X_temp[self.Binary_cat_list]=self.oe_.fit_transform(X_temp[self.Binary_cat_list])
-        self.ct_=ColumnTransformer(transformers=[("encoder", OneHotEncoder(), self.Mult_cat_list)], remainder="passthrough")
-        self.ct_.fit(X_temp)
+        self.ct_=ColumnTransformer(transformers=[("encoder", OneHotEncoder(drop="first", handle_unknown="ignore"), self.Mult_cat_list)], remainder="passthrough")
+        self.ct_.fit_transform(X_temp)
         return self
     def transform(self, X, y=None):
         X_temp=X.copy()
