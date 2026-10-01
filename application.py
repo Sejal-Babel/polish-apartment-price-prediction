@@ -7,7 +7,7 @@ from custom_classes import CustomePreprocess
 application = Flask(__name__)
 app=application 
 
-## import Random Forest regressor pickle file and feature names
+## import Random Forest regressor pickle file and feature namesgit
 model=pickle.load(open("housing_model.pkl", "rb"))
 features=json.load(open("feature_names.json", "r"))
 
