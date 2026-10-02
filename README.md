@@ -46,7 +46,7 @@ min_samples_split=10, cv=5, scoring='r2'
 | `squareMeters`, `floorCount`, `buildYear`, `latitude`, `longitude` | Numerical |
 | `centreDistance`, `poiCount`, `clinicDistance`, `restaurantDistance`, `collegeDistance` | Numerical |
 
-Correlated features dropped: `rooms`, `floor`, `schoolDistance`, `postOfficeDistance`, `kindergartenDistance`, `pharmacyDistance`, `type_tenement`, `type_apartmentBuilding`, `ownership_cooperative`
+Correlated features dropped: `rooms`, `floor`, `schoolDistance`, `postOfficeDistance`, `kindergartenDistance`, `pharmacyDistance`, `type_tenement`
 
 ---
 
