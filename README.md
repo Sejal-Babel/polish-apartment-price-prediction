@@ -26,7 +26,7 @@ This project covers the full ML lifecycle — from exploratory data analysis to 
 |---|---|---|
 | Linear Regression | — | Low |
 | Decision Tree | 0.9996 | 0.91 (overfitting) |
-| **Random Forest (Final)** | **0.93** | **0.91** |
+| **Random Forest (Final)** | **0.94** | **0.91** |
 
 ### Best Parameters (via GridSearchCV)
 ```
