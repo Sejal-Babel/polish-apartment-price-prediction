@@ -3,7 +3,7 @@
 A machine learning web application that predicts apartment prices in Poland using May-June 2024 data. Built with scikit-learn and deployed via Flask on AWS Elastic Beanstalk.
 
 ## Live Demo
-🌐 [Polish Apartment Price Predictor](http://polish-apartment-price-predictio-env.eba-rheknhrx.eu-north-1.elasticbeanstalk.com)
+🌐 [Polish Apartment Price Predictor](http://polish-apartment-price-predictio-env.eba-rheknhrx.eu-north-1.elasticbeanstalk.com/predict_data)
 
 ---
 
